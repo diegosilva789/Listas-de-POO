@@ -5,7 +5,7 @@ import org.wb.modelo.Filial;
 public class Menu {
 	public static void mostrarMenu(Filial f) {
 		System.out.println("\n============================================================");
-		System.out.println("Você escolheu a filial: " + f.nomefilial);
+		System.out.println("Você escolheu a filial: " + f.numero + " - " + f.nomefilial);
 		System.out.println("============================================================");
 		System.out.println("Selecione a opção desejada:");
 		System.out.println("1.  Selecione a filial");
@@ -17,8 +17,9 @@ public class Menu {
 		System.out.println("7.  Listar clientes em ordem alfabética");
 		System.out.println("8.  Listar clientes femininos");
 		System.out.println("9.  Listar clientes masculinos");
-		System.out.println("10.  Relatórios de Inteligência - AINDA FALTA ESSE");
-		System.out.println("11. Sair");
+		System.out.println("10. Relatórios de Inteligência");
+		System.out.println("11. Listar todas as filiais");
+		System.out.println("12. Sair");
 		System.out.println("============================================================\n");
 	}
 

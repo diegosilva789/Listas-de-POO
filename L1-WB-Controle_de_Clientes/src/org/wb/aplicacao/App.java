@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.wb.controle.Controle;
 import org.wb.controle.ControleMenu;
+import org.wb.controle.ControleRelatorios;
 import org.wb.controle.Menu;
 import org.wb.modelo.Filial;
 
@@ -13,23 +14,26 @@ public class App {
 	public static void main(String[] args) {
 		Controle controle = new Controle();
 		ControleMenu controlemenu = new ControleMenu();
+		ControleRelatorios controlerelatorios = new ControleRelatorios();
 		List<Filial> filiais = new ArrayList<>();
+//		filiais = controlemenu.recuperarDados(filiais);
 		try {
 			filiais = controlemenu.recuperarDados(filiais);
 		} catch (Exception e) {
 			System.out.println("Algo deu errado na leitura!");
+			e.printStackTrace();
 		}
 		Filial f = new Filial();
 
 		int escolha = 0;
-		while (escolha != 11) {
+		while (escolha != 12) {
+//			controlemenu.salvarDados(filiais);
 			try {
 				controlemenu.salvarDados(filiais);
 			} catch (Exception e) {
 				System.out.println("Algo deu errado no salvamento!");
+				e.printStackTrace();
 			}
-			System.out.println("Digite 0 para continuar");
-			escolha = controle.opcao();
 			Menu.mostrarMenu(f);
 			escolha = controle.opcao();
 
@@ -57,7 +61,7 @@ public class App {
 			if (escolha == 5) {
 				controlemenu.registrarConsumo(f, escolha, controle);
 			}
-			
+
 			if (escolha == 6) {
 				controlemenu.listarHisConCliente(f, controle);
 			}
@@ -74,6 +78,13 @@ public class App {
 				controlemenu.listarClientesMasAlfabeto(f);
 			}
 
+			if (escolha == 10) {
+				controlemenu.listarRelatorios(f, escolha, controle, controlerelatorios);
+			}
+
+			if (escolha == 11) {
+				filiais.forEach(filial -> System.out.println(filial));
+			}
 		}
 		System.out.println("Aplicação Finalizada!");
 
