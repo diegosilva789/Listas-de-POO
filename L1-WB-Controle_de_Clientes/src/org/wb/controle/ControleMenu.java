@@ -23,7 +23,7 @@ public class ControleMenu {
 	@SuppressWarnings("unchecked")
 	public List<Filial> recuperarDados(List<Filial> filiais) throws Exception {
 		Date data = Calendar.getInstance().getTime();
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd-hh-mm-ss");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-hh-mm-ss");
 		String dataformatada = dateFormat.format(data);
 
 		String caminho = "D:\\OneDrive - Etec Centro Paula Souza\\Área de Trabalho\\3sem\\github"
